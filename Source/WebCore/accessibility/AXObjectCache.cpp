@@ -2787,7 +2787,14 @@ VisiblePosition AXObjectCache::visiblePositionForTextMarkerData(const TextMarker
     if (!isNodeInUse(node) || node->isPseudoElement())
         return { };
 
-    auto visiblePosition = VisiblePosition({ node.ptr(), textMarkerData.offset, textMarkerData.anchorType }, textMarkerData.affinity);
+    Position position;
+    if (textMarkerData.anchorType == Position::PositionIsOffsetInAnchor)
+        position = Position(node.ptr(), textMarkerData.offset, textMarkerData.anchorType);
+    else {
+        RELEASE_ASSERT(false);
+        position = Position(node.ptr(), textMarkerData.anchorType);
+    }
+    auto visiblePosition = VisiblePosition(position, textMarkerData.affinity);
     auto deepPosition = visiblePosition.deepEquivalent();
     if (deepPosition.isNull())
         return { };
