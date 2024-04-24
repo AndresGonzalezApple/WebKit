@@ -885,7 +885,7 @@ PlatformRoleMap createPlatformRoleMap()
         { AccessibilityRole::WebArea, @"AXWebArea" },
         { AccessibilityRole::Heading, @"AXHeading" },
         { AccessibilityRole::ListBox, NSAccessibilityListRole },
-        { AccessibilityRole::ListBoxOption, NSAccessibilityStaticTextRole },
+        { AccessibilityRole::ListBoxOption, NSAccessibilityGroupRole },
         { AccessibilityRole::Cell, NSAccessibilityCellRole },
         { AccessibilityRole::GridCell, NSAccessibilityCellRole },
         { AccessibilityRole::TableHeaderContainer, NSAccessibilityGroupRole },
