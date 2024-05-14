@@ -137,7 +137,7 @@ void AXObjectCache::postPlatformNotification(AccessibilityObject& coreObject, AX
         break;
     case AXActiveDescendantChanged:
         if (auto* descendant = coreObject.activeDescendant()) {
-            if (coreObject.isComboBox() || coreObject.canBeControlledBy(AccessibilityRole::ComboBox))
+            if (coreObject.isComboBox())
                 wrapper->activeDescendantChanged();
             else
                 platformHandleFocusedUIElementChanged(nullptr, descendant->node());
